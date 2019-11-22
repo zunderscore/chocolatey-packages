@@ -1,0 +1,40 @@
+{
+  "cascadiaProjectRoot": "https://github.com/microsoft/cascadia-code",
+  "cascadiaVersion": "1911.20",
+  "licenseFilename": "LICENSE.txt",
+  "verificationFilename": "VERIFICATION.txt",
+  "installFilename": "chocolateyinstall.ps1",
+  "uninstallFilename": "chocolateyuninstall.ps1",
+  "cascadiaCode": {
+    "packageName": "cascadiacode",
+    "displayName": "Cascadia Code",
+    "filename": "Cascadia.ttf",
+    "description": "This is Microsoft's Cascadia Code font, originally designed for the new Windows Terminal.",
+    "releaseNotes": "Updated for 1911.20 release of Cascadia Code",
+    "tags": "cascadia code cascadiacode font windowsterminal terminal"
+  },
+  "cascadiaMono": {
+    "packageName": "cascadiamono",
+    "displayName": "Cascadia Mono",
+    "filename": "CascadiaMono.ttf",
+    "description": "This is Microsoft's Cascadia Mono font, based on Cascadia Code but without ligatures, originally designed for the new Windows Terminal.",
+    "releaseNotes": "Initial release for 1911.20 release of Cascadia Mono",
+    "tags": "cascadia mono cascadiamono font windowsterminal terminal"
+  },
+  "cascadiaCodePL": {
+    "packageName": "cascadiacodepl",
+    "displayName": "Cascadia Code PL",
+    "filename": "CascadiaPL.ttf",
+    "description": "This is Microsoft's Cascadia Code PL font (Cascadia Code with powerline symbols), originally designed for the new Windows Terminal.",
+    "releaseNotes": "Initial release for 1911.20 release of Cascadia Code PL",
+    "tags": "cascadia code cascadiacode cascadiacodepl font windowsterminal terminal"
+  },
+  "cascadiaMonoPL": {
+    "packageName": "cascadiamonopl",
+    "displayName": "Cascadia Mono PL",
+    "filename": "CascadiaMonoPL.ttf",
+    "description": "This is Microsoft's Cascadia Mono PL font (Cascadia Mono with powerline symbols), based on Cascadia Code but without ligatures, originally designed for the new Windows Terminal.",
+    "releaseNotes": "Initial release for 1911.20 release of Cascadia Mono PL",
+    "tags": "cascadia mono cascadiamono cascadiamonopl font windowsterminal terminal"
+  }
+}

@@ -1,0 +1,11 @@
+﻿VERIFICATION
+Verification is intended to assist the Chocolatey moderators and community
+in verifying that this package's contents are trustworthy.
+
+Font file comes from:
+{{cascadiaProjectRoot}}/releases/download/v{{cascadiaVersion}}/{{filename}}
+MD5 checksum: {{md5hash}}
+SHA1 checksum: {{sha1hash}}
+
+License comes from:
+{{cascadiaProjectRoot}}/blob/master/LICENSE

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>{{packageName}}</id>
+    <version>{{cascadiaVersion}}</version>
+    <title>{{displayName}} Font</title>
+    <authors>Microsoft</authors>
+    <owners>zunderscore</owners>
+    <projectUrl>{{cascadiaProjectRoot}}</projectUrl>
+    <licenseUrl>{{cascadiaProjectRoot}}/blob/master/LICENSE</licenseUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <projectSourceUrl>{{cascadiaProjectRoot}}</projectSourceUrl>
+    <tags>{{tags}}</tags>
+    <summary>{{displayName}} font</summary>
+    <description>{{description}}</description>
+    <dependencies>
+      <dependency id="chocolatey-font-helpers.extension" version="0.0.2" />
+    </dependencies>
+    <releaseNotes>{{releaseNotes}}</releaseNotes>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="files\**" target="files" />
+  </files>
+</package>

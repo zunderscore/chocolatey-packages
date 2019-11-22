@@ -1,7 +1,7 @@
 param([string]$OutputPath = '.\packages\')
 
 # Get config values
-$config = ConvertFrom-Json -InputObject (Get-Content config.json -Raw)
+$config = ConvertFrom-Json -InputObject (Get-Content .\config.json -Raw)
 
 if (!(Test-Path -Path $OutputPath)) {
 	New-Item -ItemType Directory -Path $OutputPath

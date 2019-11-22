@@ -10,6 +10,7 @@
     <licenseUrl>{{cascadiaProjectRoot}}/blob/master/LICENSE</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <projectSourceUrl>{{cascadiaProjectRoot}}</projectSourceUrl>
+    <packageSourceUrl>https://github.com/zunderscore/chocolatey-packages</packageSourceUrl>
     <tags>{{tags}}</tags>
     <summary>{{displayName}} font</summary>
     <description>{{description}}</description>

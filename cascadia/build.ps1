@@ -7,11 +7,31 @@ if (!(Test-Path -Path $OutputPath)) {
 	New-Item -ItemType Directory -Path $OutputPath
 }
 
-function Stage-FontPackage($FontConfig) {
+function Create-FontPackageFolders($FontConfig, [bool]$IncludeFilesPath = $true) {
 	# Create working directories
 	New-Item -ItemType Directory -Path ("$PSScriptRoot\" + $FontConfig.packageName)
-	New-Item -ItemType Directory -Path ("$PSScriptRoot\" + $FontConfig.packageName + "\files\")
 	New-Item -ItemType Directory -Path ("$PSScriptRoot\" + $FontConfig.packageName + "\tools\")
+	
+	if ($IncludeFilesPath -eq $true) {
+		New-Item -ItemType Directory -Path ("$PSScriptRoot\" + $FontConfig.packageName + "\files\")	
+	}
+}
+
+function Replace-NuspecTokens($FontConfig, $TemplateFilename = "default.nuspec") {
+	((Get-Content -Path ("$PSScriptRoot\" + $TemplateFilename) -Raw) `
+		-replace "{{cascadiaProjectRoot}}", $config.cascadiaProjectRoot `
+		-replace "{{packageName}}", $FontConfig.packageName `
+		-replace "{{displayName}}", $FontConfig.displayName `
+		-replace "{{tags}}", ($config.tags + " " + $FontConfig.tags) `
+		-replace "{{description}}", $FontConfig.description `
+		-replace "{{releaseNotes}}", $FontConfig.releaseNotes `
+		-replace "{{cascadiaVersion}}", $config.cascadiaVersion) `
+		| Set-Content -Path ("$PSScriptRoot\" + $FontConfig.packageName + "\" + $FontConfig.packageName + ".nuspec")
+}
+
+function Stage-FontPackage($FontConfig) {
+	Create-FontPackageFolders -FontConfig $FontConfig
+	Replace-NuspecTokens -FontConfig $FontConfig
 		
 	Invoke-WebRequest -Uri ($config.cascadiaProjectRoot + "/releases/download/v" + $config.cascadiaVersion + "/" + $FontConfig.filename) `
 		-OutFile ("$PSScriptRoot\" + $FontConfig.packageName + "\files\" + $FontConfig.filename)
@@ -20,16 +40,6 @@ function Stage-FontPackage($FontConfig) {
 	$sha1hash = Get-FileHash ("$PSScriptRoot\" + $FontConfig.packageName + "\files\" + $FontConfig.filename) -Algorithm SHA1
 	
 	Copy-Item "$PSScriptRoot\cascadialicense.txt" -Destination ("$PSScriptRoot\" + $FontConfig.packageName + "\tools\" + $config.licenseFilename)
-	
-	((Get-Content -Path ("$PSScriptRoot\default.nuspec") -Raw) `
-		-replace "{{cascadiaProjectRoot}}", $config.cascadiaProjectRoot `
-		-replace "{{cascadiaVersion}}", $config.cascadiaVersion `
-		-replace "{{packageName}}", $FontConfig.packageName `
-		-replace "{{displayName}}", $FontConfig.displayName `
-		-replace "{{tags}}", $FontConfig.tags `
-		-replace "{{description}}", $FontConfig.description `
-		-replace "{{releaseNotes}}", $FontConfig.releaseNotes) `
-		| Set-Content -Path ("$PSScriptRoot\" + $FontConfig.packageName + "\" + $FontConfig.packageName + ".nuspec")
 	
 	((Get-Content -Path ("$PSScriptRoot\" + $config.installFilename) -Raw) `
 		-replace "{{packageName}}", $FontConfig.packageName `
@@ -45,11 +55,20 @@ function Stage-FontPackage($FontConfig) {
 	
 	((Get-Content -Path ("$PSScriptRoot\verification.txt") -Raw) `
 		-replace "{{cascadiaProjectRoot}}", $config.cascadiaProjectRoot `
-		-replace "{{cascadiaVersion}}", $config.cascadiaVersion `
 		-replace "{{filename}}", $FontConfig.filename `
 		-replace "{{md5hash}}", $md5hash.Hash `
-		-replace "{{sha1hash}}", $sha1hash.Hash) `
+		-replace "{{sha1hash}}", $sha1hash.Hash `
+		-replace "{{cascadiaVersion}}", $config.cascadiaVersion) `
 		| Set-Content -Path ("$PSScriptRoot\" + $FontConfig.packageName + "\tools\" + $config.verificationFilename)
+}
+
+function Stage-FullFontPackage() {
+	$FontConfig = $config.cascadiaFonts
+
+	Create-FontPackageFolders -FontConfig $FontConfig -IncludeFilesPath $false
+	Replace-NuspecTokens -FontConfig $FontConfig -TemplateFilename "cascadiafonts.nuspec"
+	
+	Copy-Item "$PSScriptRoot\cascadialicense.txt" -Destination ("$PSScriptRoot\" + $FontConfig.packageName + "\tools\" + $config.licenseFilename)
 }
 
 
@@ -69,3 +88,9 @@ choco pack ("$PSScriptRoot\" + $config.cascadiaCodePL.packageName + "\" + $confi
 # Cascadia Mono PL
 Stage-FontPackage -FontConfig $config.cascadiaMonoPL
 choco pack ("$PSScriptRoot\" + $config.cascadiaMonoPL.packageName + "\" + $config.cascadiaMonoPL.packageName + ".nuspec") --outputdirectory $OutputPath
+
+
+
+# Cascadia Fonts
+Stage-FullFontPackage
+choco pack ("$PSScriptRoot\" + $config.cascadiaFonts.packageName + "\" + $config.cascadiaFonts.packageName + ".nuspec") --outputdirectory $OutputPath

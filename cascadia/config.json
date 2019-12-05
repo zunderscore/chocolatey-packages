@@ -5,36 +5,44 @@
   "verificationFilename": "VERIFICATION.txt",
   "installFilename": "chocolateyinstall.ps1",
   "uninstallFilename": "chocolateyuninstall.ps1",
+  "tags": "cascadia font windowsterminal terminal mono monospace",
+  "cascadiaFonts": {
+    "packageName": "cascadiafonts",
+    "displayName": "Cascadia Font Family",
+    "description": "This package contains Microsoft's Cascadia family of fonts, including Cascadia Code, Cascadia Code PL (Cascadia Code with powerline symbols), Cascadia Mono, and Cascadia Mono PL (Cascadia Mono with powerline symbols).",
+    "releaseNotes": "Updated for {{cascadiaVersion}} release of Cascadia font family",
+    "tags": "code cascadiacode cascadiacodepl cascadiamono cascadiamonopl powerline"
+  },
   "cascadiaCode": {
     "packageName": "cascadiacode",
     "displayName": "Cascadia Code",
     "filename": "Cascadia.ttf",
     "description": "This is Microsoft's Cascadia Code font, originally designed for the new Windows Terminal.",
-    "releaseNotes": "Updated for 1911.21 release of Cascadia Code",
-    "tags": "cascadia code cascadiacode font windowsterminal terminal"
+    "releaseNotes": "Updated for {{cascadiaVersion}} release of Cascadia Code",
+    "tags": "code cascadiacode"
   },
   "cascadiaMono": {
     "packageName": "cascadiamono",
     "displayName": "Cascadia Mono",
     "filename": "CascadiaMono.ttf",
     "description": "This is Microsoft's Cascadia Mono font, based on Cascadia Code but without ligatures, originally designed for the new Windows Terminal.",
-    "releaseNotes": "Initial release for 1911.21 release of Cascadia Mono",
-    "tags": "cascadia mono cascadiamono font windowsterminal terminal"
+    "releaseNotes": "Updated for {{cascadiaVersion}} release of Cascadia Mono",
+    "tags": "cascadiamono"
   },
   "cascadiaCodePL": {
     "packageName": "cascadiacodepl",
     "displayName": "Cascadia Code PL",
     "filename": "CascadiaPL.ttf",
     "description": "This is Microsoft's Cascadia Code PL font (Cascadia Code with powerline symbols), originally designed for the new Windows Terminal.",
-    "releaseNotes": "Initial release for 1911.21 release of Cascadia Code PL",
-    "tags": "cascadia code cascadiacode cascadiacodepl font windowsterminal terminal"
+    "releaseNotes": "Updated for {{cascadiaVersion}} release of Cascadia Code PL",
+    "tags": "code cascadiacode cascadiacodepl powerline"
   },
   "cascadiaMonoPL": {
     "packageName": "cascadiamonopl",
     "displayName": "Cascadia Mono PL",
     "filename": "CascadiaMonoPL.ttf",
     "description": "This is Microsoft's Cascadia Mono PL font (Cascadia Mono with powerline symbols), based on Cascadia Code but without ligatures, originally designed for the new Windows Terminal.",
-    "releaseNotes": "Initial release for 1911.21 release of Cascadia Mono PL",
-    "tags": "cascadia mono cascadiamono cascadiamonopl font windowsterminal terminal"
+    "releaseNotes": "Updated for {{cascadiaVersion}} release of Cascadia Mono PL",
+    "tags": "cascadiamono cascadiamonopl powerline"
   }
 }

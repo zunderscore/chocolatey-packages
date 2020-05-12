@@ -32,9 +32,8 @@ function Replace-NuspecTokens($FontConfig, $TemplateFilename = "default.nuspec")
 function Stage-FontPackage($FontConfig) {
 	Create-FontPackageFolders -FontConfig $FontConfig
 	Replace-NuspecTokens -FontConfig $FontConfig
-		
-	Invoke-WebRequest -Uri ($config.cascadiaProjectRoot + "/releases/download/v" + $config.cascadiaVersion + "/" + $FontConfig.filename) `
-		-OutFile ("$PSScriptRoot\" + $FontConfig.packageName + "\files\" + $FontConfig.filename)
+
+	Copy-Item ($tempDownloadFolder + "\ttf\" + $FontConfig.filename) -Destination ("$PSScriptRoot\" + $FontConfig.packageName + "\files\" + $FontConfig.filename)
 	
 	$md5hash = Get-FileHash ("$PSScriptRoot\" + $FontConfig.packageName + "\files\" + $FontConfig.filename) -Algorithm MD5
 	$sha1hash = Get-FileHash ("$PSScriptRoot\" + $FontConfig.packageName + "\files\" + $FontConfig.filename) -Algorithm SHA1
@@ -50,6 +49,7 @@ function Stage-FontPackage($FontConfig) {
 	((Get-Content -Path ("$PSScriptRoot\" + $config.uninstallFilename) -Raw) `
 		-replace "{{packageName}}", $FontConfig.packageName `
 		-replace "{{displayName}}", $FontConfig.displayName `
+		-replace "{{legacyFilename}}", $FontConfig.legacyFilename `
 		-replace "{{filename}}", $FontConfig.filename) `
 		| Set-Content -Path ("$PSScriptRoot\" + $FontConfig.packageName + "\tools\" + $config.uninstallFilename)
 	
@@ -71,6 +71,19 @@ function Stage-FullFontPackage() {
 	Copy-Item "$PSScriptRoot\cascadialicense.txt" -Destination ("$PSScriptRoot\" + $FontConfig.packageName + "\tools\" + $config.licenseFilename)
 }
 
+
+# Download build
+$downloadPath = "$env:TEMP\CascadiaCode_" + $config.cascadiaVersion + ".zip"
+Invoke-WebRequest -Uri ($config.cascadiaProjectRoot + "/releases/download/v" + $config.cascadiaVersion + "/CascadiaCode_" + $config.cascadiaVersion + ".zip") `
+	-OutFile ($downloadPath)
+
+# Create temp extract folder
+$tempDownloadFolder = "$env:TEMP\cascadiacode_" + $config.cascadiaVersion
+New-Item -ItemType Directory -Path ($tempDownloadFolder)
+
+# Extract files from build
+Add-Type -Assembly "System.IO.Compression.FileSystem"
+[IO.Compression.ZipFile]::ExtractToDirectory($downloadPath, $tempDownloadFolder)
 
 
 # Cascadia Code
@@ -94,3 +107,9 @@ choco pack ("$PSScriptRoot\" + $config.cascadiaMonoPL.packageName + "\" + $confi
 # Cascadia Fonts
 Stage-FullFontPackage
 choco pack ("$PSScriptRoot\" + $config.cascadiaFonts.packageName + "\" + $config.cascadiaFonts.packageName + ".nuspec") --outputdirectory $OutputPath
+
+
+
+# Cleanup
+Remove-Item -Path $tempDownloadFolder -Recurse
+Remove-Item -Path $downloadPath

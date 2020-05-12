@@ -1,6 +1,6 @@
 {
   "cascadiaProjectRoot": "https://github.com/microsoft/cascadia-code",
-  "cascadiaVersion": "1911.21",
+  "cascadiaVersion": "2004.30",
   "licenseFilename": "LICENSE.txt",
   "verificationFilename": "VERIFICATION.txt",
   "installFilename": "chocolateyinstall.ps1",
@@ -16,7 +16,8 @@
   "cascadiaCode": {
     "packageName": "cascadiacode",
     "displayName": "Cascadia Code",
-    "filename": "Cascadia.ttf",
+    "filename": "CascadiaCode.ttf",
+    "legacyFilename": "Cascadia.ttf",
     "description": "This is Microsoft's Cascadia Code font, originally designed for the new Windows Terminal.",
     "releaseNotes": "Updated for {{cascadiaVersion}} release of Cascadia Code",
     "tags": "code cascadiacode"
@@ -25,6 +26,7 @@
     "packageName": "cascadiamono",
     "displayName": "Cascadia Mono",
     "filename": "CascadiaMono.ttf",
+    "legacyFilename": "CascadiaMono.ttf",
     "description": "This is Microsoft's Cascadia Mono font, based on Cascadia Code but without ligatures, originally designed for the new Windows Terminal.",
     "releaseNotes": "Updated for {{cascadiaVersion}} release of Cascadia Mono",
     "tags": "cascadiamono"
@@ -32,7 +34,8 @@
   "cascadiaCodePL": {
     "packageName": "cascadiacodepl",
     "displayName": "Cascadia Code PL",
-    "filename": "CascadiaPL.ttf",
+    "filename": "CascadiaCodePL.ttf",
+    "legacyFilename": "CascadiaPL.ttf",
     "description": "This is Microsoft's Cascadia Code PL font (Cascadia Code with powerline symbols), originally designed for the new Windows Terminal.",
     "releaseNotes": "Updated for {{cascadiaVersion}} release of Cascadia Code PL",
     "tags": "code cascadiacode cascadiacodepl powerline"
@@ -41,6 +44,7 @@
     "packageName": "cascadiamonopl",
     "displayName": "Cascadia Mono PL",
     "filename": "CascadiaMonoPL.ttf",
+    "legacyFilename": "CascadiaMonoPL.ttf",
     "description": "This is Microsoft's Cascadia Mono PL font (Cascadia Mono with powerline symbols), based on Cascadia Code but without ligatures, originally designed for the new Windows Terminal.",
     "releaseNotes": "Updated for {{cascadiaVersion}} release of Cascadia Mono PL",
     "tags": "cascadiamono cascadiamonopl powerline"

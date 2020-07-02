@@ -74,7 +74,7 @@ function Stage-FullFontPackage() {
 
 # Download build
 $downloadPath = "$env:TEMP\CascadiaCode_" + $config.cascadiaVersion + ".zip"
-Invoke-WebRequest -Uri ($config.cascadiaProjectRoot + "/releases/download/v" + $config.cascadiaVersion + "/CascadiaCode_" + $config.cascadiaVersion + ".zip") `
+Invoke-WebRequest -Uri ($config.cascadiaProjectRoot + "/releases/download/v" + $config.cascadiaVersion + "/CascadiaCode-" + $config.cascadiaVersion + ".zip") `
 	-OutFile ($downloadPath)
 
 # Create temp extract folder

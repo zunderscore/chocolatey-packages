@@ -1,6 +1,6 @@
 {
   "cascadiaProjectRoot": "https://github.com/microsoft/cascadia-code",
-  "cascadiaVersion": "2009.21",
+  "cascadiaVersion": "2009.22",
   "licenseFilename": "LICENSE.txt",
   "verificationFilename": "VERIFICATION.txt",
   "installFilename": "chocolateyinstall.ps1",

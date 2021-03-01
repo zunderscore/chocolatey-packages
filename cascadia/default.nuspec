@@ -15,7 +15,7 @@
     <summary>{{displayName}} font</summary>
     <description>{{description}}</description>
     <dependencies>
-      <dependency id="chocolatey-font-helpers.extension" version="0.0.2" />
+      <dependency id="chocolatey-font-helpers.extension" version="0.0.3.1" />
     </dependencies>
     <releaseNotes>{{releaseNotes}}</releaseNotes>
   </metadata>

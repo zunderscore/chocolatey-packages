@@ -1,6 +1,6 @@
 {
   "cascadiaProjectRoot": "https://github.com/microsoft/cascadia-code",
-  "cascadiaVersion": "2102.25",
+  "cascadiaVersion": "2105.24",
   "licenseFilename": "LICENSE.txt",
   "verificationFilename": "VERIFICATION.txt",
   "installFilename": "chocolateyinstall.ps1",
@@ -48,5 +48,41 @@
     "description": "This is Microsoft's Cascadia Mono PL font (Cascadia Mono with powerline symbols), based on Cascadia Code but without ligatures, originally designed for the new Windows Terminal.",
     "releaseNotes": "Updated for {{cascadiaVersion}} release of Cascadia Mono PL",
     "tags": "cascadiamono cascadiamonopl powerline"
+  },
+  "cascadiaCodeItalic": {
+    "packageName": "cascadiacodeitalic",
+    "displayName": "Cascadia Code Italic",
+    "filename": "CascadiaCodeItalic.ttf",
+    "legacyFilename": "CascadiaCodeItalic.ttf",
+    "description": "This is Microsoft's Cascadia Code Italic font, originally designed for the new Windows Terminal.",
+    "releaseNotes": "Updated for {{cascadiaVersion}} release of Cascadia Code Italic",
+    "tags": "code cascadiacode italic"
+  },
+  "cascadiaMonoItalic": {
+    "packageName": "cascadiamonoitalic",
+    "displayName": "Cascadia Mono Italic",
+    "filename": "CascadiaMonoItalic.ttf",
+    "legacyFilename": "CascadiaMonoItalic.ttf",
+    "description": "This is Microsoft's Cascadia Mono Italic font, based on Cascadia Code Italic but without ligatures, originally designed for the new Windows Terminal.",
+    "releaseNotes": "Updated for {{cascadiaVersion}} release of Cascadia Mono Italic",
+    "tags": "cascadiamono italic"
+  },
+  "cascadiaCodePLItalic": {
+    "packageName": "cascadiacodeplitalic",
+    "displayName": "Cascadia Code PL Italic",
+    "filename": "CascadiaCodePLItalic.ttf",
+    "legacyFilename": "CascadiaCodePLItalic.ttf",
+    "description": "This is Microsoft's Cascadia Code PL Italic font (Cascadia Code Italic with powerline symbols), originally designed for the new Windows Terminal.",
+    "releaseNotes": "Updated for {{cascadiaVersion}} release of Cascadia Code PL Italic",
+    "tags": "code cascadiacode cascadiacodepl powerline italic"
+  },
+  "cascadiaMonoPLItalic": {
+    "packageName": "cascadiamonoplitalic",
+    "displayName": "Cascadia Mono PL Italic",
+    "filename": "CascadiaMonoPLItalic.ttf",
+    "legacyFilename": "CascadiaMonoPLItalic.ttf",
+    "description": "This is Microsoft's Cascadia Mono PL Italic font (Cascadia Mono Italic with powerline symbols), based on Cascadia Code Italic but without ligatures, originally designed for the new Windows Terminal.",
+    "releaseNotes": "Updated for {{cascadiaVersion}} release of Cascadia Mono PL Italic",
+    "tags": "cascadiamono cascadiamonopl powerline italic"
   }
 }

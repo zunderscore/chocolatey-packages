@@ -14,3 +14,11 @@ Chocolatey package build scripts for the [Cascadia Code](https://github.com/micr
 [Cascadia Code PL](https://chocolatey.org/packages/cascadiacodepl)
 
 [Cascadia Mono PL](https://chocolatey.org/packages/cascadiamonopl)
+
+[Cascadia Code Italic](https://chocolatey.org/packages/cascadiacodeitalic)
+
+[Cascadia Mono Italic](https://chocolatey.org/packages/cascadiamonoitalic)
+
+[Cascadia Code PL Italic](https://chocolatey.org/packages/cascadiacodeplitalic)
+
+[Cascadia Mono PL Italic](https://chocolatey.org/packages/cascadiamonoplitalic)

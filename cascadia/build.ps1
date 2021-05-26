@@ -103,6 +103,23 @@ Stage-FontPackage -FontConfig $config.cascadiaMonoPL
 choco pack ("$PSScriptRoot\" + $config.cascadiaMonoPL.packageName + "\" + $config.cascadiaMonoPL.packageName + ".nuspec") --outputdirectory $OutputPath
 
 
+# Cascadia Code Italic
+Stage-FontPackage -FontConfig $config.cascadiaCodeItalic
+choco pack ("$PSScriptRoot\" + $config.cascadiaCodeItalic.packageName + "\" + $config.cascadiaCodeItalic.packageName + ".nuspec") --outputdirectory $OutputPath
+
+# Cascadia Mono Italic
+Stage-FontPackage -FontConfig $config.cascadiaMonoItalic
+choco pack ("$PSScriptRoot\" + $config.cascadiaMonoItalic.packageName + "\" + $config.cascadiaMonoItalic.packageName + ".nuspec") --outputdirectory $OutputPath
+
+# Cascadia Code PL Italic
+Stage-FontPackage -FontConfig $config.cascadiaCodePLItalic
+choco pack ("$PSScriptRoot\" + $config.cascadiaCodePLItalic.packageName + "\" + $config.cascadiaCodePLItalic.packageName + ".nuspec") --outputdirectory $OutputPath
+
+# Cascadia Mono PL Italic
+Stage-FontPackage -FontConfig $config.cascadiaMonoPLItalic
+choco pack ("$PSScriptRoot\" + $config.cascadiaMonoPLItalic.packageName + "\" + $config.cascadiaMonoPLItalic.packageName + ".nuspec") --outputdirectory $OutputPath
+
+
 
 # Cascadia Fonts
 Stage-FullFontPackage

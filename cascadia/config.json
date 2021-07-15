@@ -1,6 +1,6 @@
 {
   "cascadiaProjectRoot": "https://github.com/microsoft/cascadia-code",
-  "cascadiaVersion": "2105.24",
+  "cascadiaVersion": "2106.17",
   "licenseFilename": "LICENSE.txt",
   "verificationFilename": "VERIFICATION.txt",
   "installFilename": "chocolateyinstall.ps1",
@@ -68,7 +68,7 @@
     "tags": "cascadiamono italic"
   },
   "cascadiaCodePLItalic": {
-    "packageName": "cascadiacodeplitalic",
+    "packageName": "cascadiacodepl-italic",
     "displayName": "Cascadia Code PL Italic",
     "filename": "CascadiaCodePLItalic.ttf",
     "legacyFilename": "CascadiaCodePLItalic.ttf",
@@ -77,7 +77,7 @@
     "tags": "code cascadiacode cascadiacodepl powerline italic"
   },
   "cascadiaMonoPLItalic": {
-    "packageName": "cascadiamonoplitalic",
+    "packageName": "cascadiamonopl-italic",
     "displayName": "Cascadia Mono PL Italic",
     "filename": "CascadiaMonoPLItalic.ttf",
     "legacyFilename": "CascadiaMonoPLItalic.ttf",

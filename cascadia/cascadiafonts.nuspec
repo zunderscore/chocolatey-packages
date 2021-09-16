@@ -19,6 +19,10 @@
       <dependency id="cascadiacodepl" version="{{cascadiaVersion}}" />
       <dependency id="cascadiamono" version="{{cascadiaVersion}}" />
       <dependency id="cascadiamonopl" version="{{cascadiaVersion}}" />
+      <dependency id="cascadiacodeitalic" version="{{cascadiaVersion}}" />
+      <dependency id="cascadiacodepl-italic" version="{{cascadiaVersion}}" />
+      <dependency id="cascadiamonoitalic" version="{{cascadiaVersion}}" />
+      <dependency id="cascadiamonopl-italic" version="{{cascadiaVersion}}" />
     </dependencies>
     <releaseNotes>{{releaseNotes}}</releaseNotes>
   </metadata>
